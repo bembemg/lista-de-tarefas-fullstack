@@ -8,13 +8,11 @@
     "react-dom": "^18.3.1",
     "sortablejs": "^1.15.3"
   },
-
   "scripts": {
     "frontend": "cd frontend && npm start",
     "backend": "cd backend && cd src && npm run devback",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },
-
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
