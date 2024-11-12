@@ -4,11 +4,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3333;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+const port = process.env.PORT || 3333;
 
 // Banco de dados SQLite
 const db = new sqlite3.Database('./src/tasks.db', (err) => {
