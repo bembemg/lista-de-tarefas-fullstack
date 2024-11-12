@@ -61,9 +61,9 @@ app.post('/tasks', (req, res) => {
 
 // Reordenar tarefas
 app.put('/tasks/reorder', (req, res) => {
-    console.log('Recebendo requisição de reordenação');
+    // console.log('Recebendo requisição de reordenação');
     const { tasks } = req.body;
-    console.log('Reordenação recebida:', tasks);
+    // console.log('Reordenação recebida:', tasks);
 
     if (!tasks || !Array.isArray(tasks)) {
         return res.status(400).json({ error: "Formato inválido!" });

@@ -4,13 +4,13 @@
     width: 90%;
     justify-self: center;
     height: 4rem;
-    background-color: #fff3cd;
+    background-color: #fff3cda9;
 
     transition: background-color 0.3s;
 }
 
 #task-container:hover {
-    background-color: #ffe7b3;
+    background-color: #ffe7b3cc;
 }
 
 ol {
