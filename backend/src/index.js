@@ -12,11 +12,10 @@ app.use(bodyParser.json());
 
 // Configuração do PostgreSQL
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'tasks_db',
-    password: 'gabriel0511',
-    port: 5432,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 // Função para criar a tabela se não existir
