@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env SKIP_PREFLIGHT_CHECK=true CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -45,8 +45,10 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.25.9"
+    "@babel/preset-react": "^7.25.9",
+    "cross-env": "^7.0.3"
   },
   "babel": {
     "presets": [
@@ -54,7 +56,8 @@
       "@babel/preset-env"
     ],
     "plugins": [
-      "@babel/plugin-proposal-private-property-in-object"
+      "@babel/plugin-proposal-private-property-in-object",
+      "@babel/plugin-transform-private-property-in-object"
     ]
   }
 }
