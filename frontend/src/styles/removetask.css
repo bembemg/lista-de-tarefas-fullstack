@@ -16,7 +16,7 @@
     justify-content: center;
     margin-top: 2rem;
     gap: 4rem;
-    cursor: pointer;
+    cursor: default;
 
     & p {
         font: var(--text-md);
@@ -40,6 +40,7 @@
     border-radius: 16px;
     width: 7rem;
     height: 4rem;
+    cursor: pointer;
     
     transition: border-color 0.6s, box-shadow 0.6s;
 }
@@ -58,6 +59,7 @@
     border-radius: 16px;
     width: 7rem;
     height: 4rem;
+    cursor: pointer;
 
     transition: border-color 0.6s, box-shadow 0.6s;
 }

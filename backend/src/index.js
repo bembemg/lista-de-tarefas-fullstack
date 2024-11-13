@@ -55,8 +55,8 @@ app.post('/tasks', async (req, res) => {
     try {
         const result = await pool.query(
             `INSERT INTO tasks (name, cost, limit_date, position) 
-             VALUES ($1, $2, $3, (SELECT COALESCE(MAX(position), 0) + 1 FROM tasks)) 
-             RETURNING id`,
+            VALUES ($1, $2, $3, (SELECT COALESCE(MAX(position), 0) + 1 FROM tasks)) 
+            RETURNING id`,
             [name, cost, limit_date]
         );
         res.json({ id: result.rows[0].id });
