@@ -13,15 +13,14 @@
     "react-dom": "^18.3.1",
     "react-scripts": "^5.0.1",
     "react-transition-group": "^4.4.5",
-    "web-vitals": "^2.1.4",
-    "cross-env": "^7.0.3"
+    "web-vitals": "^2.1.4"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env SKIP_PREFLIGHT_CHECK=true CI=false react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
