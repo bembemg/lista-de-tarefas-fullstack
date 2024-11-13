@@ -164,15 +164,27 @@ function MainComponent() {
     
     const editExistingTask = useCallback((index) => {
         const tarefa = task[index];
+        // console.log('Tarefa a ser editada:', tarefa);
+        // console.log('Tipo do cost:', typeof tarefa.cost);
+        // console.log('Valor do cost:', tarefa.cost);
+        
         setTaskName(tarefa.name);
         
-        // Verifica se a tarefa.expense é um número
-        const expense = typeof tarefa.cost === 'number' ? tarefa.cost : 0;
-        const formattedExpense = expense.toLocaleString('pt-br', {
+        // Garantir que o valor seja um número e converter de string se necessário
+        let cost = tarefa.cost;
+        if (typeof cost === 'string') {
+            cost = parseFloat(cost.replace(/\./g, '').replace(',', '.'));
+        }
+        
+        // Forçar o número para ter sempre 2 casas decimais
+        const formattedCost = Number(cost).toLocaleString('pt-BR', {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         });
-        setExpense(formattedExpense);
+        
+        // console.log('Valor formatado:', formattedCost);
+        
+        setExpense(formattedCost);
 
         const [dia, mes, ano] = tarefa.limit_date.split('/');
         const formattedDate = dayjs(`${ano}-${mes}-${dia}`).format('YYYY-MM-DD');
@@ -180,7 +192,7 @@ function MainComponent() {
         
         setEdit(index);
         modal.current.showModal();
-    }, [task]);  
+    }, [task]);
 
     // Formata o valor de custo para BRL
     const formatBRL = (valor) => {
@@ -192,11 +204,15 @@ function MainComponent() {
 
     const handleExpenseChange = (event) => {
         let value = event.target.value;
-        value = value.replace(/\D/g, ""); // Remove caracteres não numéricos.
-        value = (value / 100).toFixed(2).replace(".", ","); // Converte para números com centavos.
-        
-        // Adiciona pontos a cada 3 caracteres após a vírgula.
-        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        // Remove todos os caracteres não numéricos
+        value = value.replace(/\D/g, "");
+        // Converte para número com 2 casas decimais
+        value = (parseInt(value) / 100).toFixed(2);
+        // Formata com separadores de milhares e vírgula decimal
+        value = Number(value).toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
         
         setExpense(value);
     };
