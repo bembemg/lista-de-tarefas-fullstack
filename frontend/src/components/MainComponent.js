@@ -171,13 +171,10 @@ function MainComponent() {
         setTaskName(tarefa.name);
         
         // Garantir que o valor seja um número e converter de string se necessário
-        let cost = tarefa.cost;
-        if (typeof cost === 'string') {
-            cost = parseFloat(cost.replace(/\./g, '').replace(',', '.'));
-        }
+        const cost = typeof tarefa.cost === 'string' ? parseFloat(tarefa.cost) : tarefa.cost;
         
         // Forçar o número para ter sempre 2 casas decimais
-        const formattedCost = Number(cost).toLocaleString('pt-BR', {
+        const formattedCost = cost.toLocaleString('pt-BR', {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         });
@@ -204,6 +201,8 @@ function MainComponent() {
 
     const handleExpenseChange = (event) => {
         let value = event.target.value;
+        // console.log('Valor digitado:', value);
+        
         // Remove todos os caracteres não numéricos
         value = value.replace(/\D/g, "");
         // Converte para número com 2 casas decimais
