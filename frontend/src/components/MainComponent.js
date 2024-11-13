@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import '../styles/App.css';
 
-const API_URL = 'http://localhost:3333';
+const API_URL = 'https://lista-de-tarefas-backend-gnvg.onrender.com';
 
 function MainComponent() {
 
