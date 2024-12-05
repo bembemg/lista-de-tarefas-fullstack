@@ -19,4 +19,4 @@
 - [React](https://react.dev/)
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/pt-br/)
-- [SQLite](https://www.sqlite.org/)
+- [PostgreSQL](https://www.postgresql.org/)
